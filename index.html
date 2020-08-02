@@ -32,7 +32,7 @@
             <div class="col-md-4">
                 <div class="withdraw">
                     <h5>Withdraw</h5>
-                <h2>$00</h2>
+                <h2>$<span id="currentWithdraw">00</span></h2>
                 </div>
                 
             </div>
@@ -83,6 +83,7 @@
             
             updateSpanText("currentdeposit",depositnumber);
             updateSpanText("currentBalance",depositnumber);
+           
             document.getElementById("depositamount").value="";
         })
         function updateSpanText(id,depositnumber){
@@ -96,6 +97,10 @@
          const withdrawbtn=document.getElementById("addWithdraw");
         withdrawbtn.addEventListener("click",function(){
             const withdrawnumber=getInputNumber("withdrawAmount");
+            updateSpanText("currentWithdraw",withdrawnumber);
+            updateSpanText("currentBalance",-1*withdrawnumber);
+            document.getElementById("withdrawAmount").value="";
+
             
             
         })
